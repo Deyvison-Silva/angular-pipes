@@ -10,3 +10,10 @@
 <p>Livro: {{ livro | json }}</p>
 <!-- Lembrando que esses pipes são default do Angular e são exportados pelo common module -->
 <!-- Desta forma os mesmos são servidos as nossas aplicações pelo BrowserModule ou pelo CommonModule -->
+<input type="text" [(ngModel)]="filtro" />
+<br>
+<input type="text" #novoCurso />
+<button (click)="addCurso(novoCurso.value)">Add Curso</button>
+<ul>
+    <li *ngFor="let liv of livros | filtroArray:filtro">{{ liv }}</li>
+</ul>
